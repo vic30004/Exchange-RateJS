@@ -16,7 +16,11 @@ const res = await fetch(URL);
 const data = await res.json()
 const {conversion_rates} = data
 const rate = conversion_rates[currency_two];
-console.log(rate)
+
+rateEl.innerText = `1 ${currency_one} = ${rate} ${currency_two}`;
+
+amountEl_two.value = (amountEl_one.value*rate).toFixed(2)
+
 }
 
 // Even Listeners
