@@ -7,8 +7,16 @@ const rateEl = document.getElementById('rate');
 const swap = document.getElementById('swap');
 
 // fetch exchange rates and update DOM
-function calculate(){
+const calculate =async()=>{
+const currency_one = currencyEl_one.value; 
+const currency_two = currencyEl_two.value;
 
+const URL = `https://prime.exchangerate-api.com/v5/7b69d83b1523c9285bdbfa43/latest/${currency_one}`;
+const res = await fetch(URL);
+const data = await res.json()
+const {conversion_rates} = data
+const rate = conversion_rates[currency_two];
+console.log(rate)
 }
 
 // Even Listeners
